@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Load Twitter Bootstrap from Codepen -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <title>URL Shortener Microservice</title>
+    <!-- <link
+      rel="icon" 
+      type="image/png" 
+      href="https://cdn.freecodecamp.org/universal/favicons/favicon-16x16.png"
+    /> -->
+    <link href="/public/style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 customDivCenter">
+
+        <h2>URL Shortener Microservice</h2>
+        <p>1) Post a url to get the short url in a JSON response at:<br>
+        <code>https://u.jylee3.repl.co/api/shorturl/new</code><br>
+        2) In the above url, replace <code>new</code> with the value of <code>"short_url"</code><br>
+        e.g.: <a href="https://u.jylee3.repl.co/api/shorturl/5" target="_blank"><code>https://u.jylee3.repl.co/api/shorturl/5</code></a></p>
+        <main>
+          <section>
+            <form action="api/shorturl/new" method="POST">
+              <div class="form-group">
+                <fieldset>
+                  <legend>URL Shortener</legend>
+                  <label for="url_input">URL:</label>
+                  <input id="url_input" class="customWidth" type="text" name="url" placeholder="https://www.freecodecamp.org/learn/apis-and-microservices/apis-and-microservices-projects/url-shortener-microservice" />
+                  <input type="submit" value="POST URL" />
+                </fieldset>
+              </div>
+            </form>
+          </section>
+        </main>
+        <!-- <footer>
+          <p>By <a href="https://www.freecodecamp.org/">freeCodeCamp</a></p>
+        </footer> -->
+
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    // Use async functions and the await keyword, part of the so-called ECMAScript 2017 JavaScript edition
+    // the "async" keyword is added to functions to tell them to return a promise rather than directly returning the value
+    const fetchData = async (data) => {
+      // "await" only works inside async functions
+      // This can be put in front of any async promise-based function to pause your code on that line until the promise fulfills,
+      // then return the resulting value
+      const json = await fetch(data);
+      // Throw error if response is not ok
+      if (!json.ok) {
+          throw new Error(`HTTP error! status: ${json.status}`);
+      } else {
+          // Convert the response to JSON format
+          const jsonData = await json.json();
+          console.log(jsonData);
+          //console.log(movieData["children"][0]["name"]); // Output: Action
+      }
+    }
+    // Run everything
+    fetchData("https://u.jylee3.repl.co/api/shorturl/new")
+      // The catch block catches the error, and executes a code to handle it
+      .catch( (e) => {
+          console.log(`There has been a problem with your fetch operation: ${e.message}`);
+    });
+  </script>
+</html>

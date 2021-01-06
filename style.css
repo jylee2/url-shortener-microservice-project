@@ -1,0 +1,65 @@
+/* Centre the <div> */
+.customDivCenter {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  /* The flexible items are displayed vertically, as a column */
+  flex-direction: column;
+  /* Align the flex items at the center of the container, horizontally */
+  justify-content: center;
+  /* Center the alignments for all the items of the flexible <div> element, vertically */
+  align-items: center;
+  /* Center the text horizontally */
+  text-align: center;
+}
+
+.customWidth {
+  width: 300px;
+}
+
+/**body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #222;
+  background-color: #fff;
+  text-align: center;
+  line-height: 1.4em;
+}
+
+main {
+  padding: 0;
+  margin-top: 40px;
+}
+
+h3 {
+  margin-top: 30px;
+}
+
+
+
+.user-stories li {
+  margin-bottom: 1em;
+}
+
+a {
+  color: #2574a9;
+}
+
+form {
+  margin: 10px auto;
+  padding: 20px;
+  max-width: 600px;
+}
+
+label {
+  margin-right: 10px;
+}
+
+input {
+  padding: 5px;
+}
+
+input[type='text'] {
+  width: 220px;
+  text-align: center;
+}**/
